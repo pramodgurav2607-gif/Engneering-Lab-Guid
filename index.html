@@ -1,0 +1,3575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Engineering Lab Guide</title>
+
+<style>
+
+/* =========================================================
+   ENGINEERING LAB GUIDE — PREMIUM UI
+========================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+:root{
+    --bg:#030914;
+    --bg2:#071321;
+    --panel:rgba(10,24,41,.72);
+    --panel2:rgba(15,32,53,.88);
+
+    --white:#f5f9ff;
+    --text:#dce8f5;
+    --muted:#8fa4ba;
+
+    --cyan:#45d9ff;
+    --blue:#4e8cff;
+    --violet:#8c63ff;
+    --green:#55e6ae;
+
+    --border:rgba(255,255,255,.10);
+    --border2:rgba(69,217,255,.24);
+
+    --shadow:0 25px 80px rgba(0,0,0,.38);
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:var(--bg);
+    color:var(--white);
+    font-family:Inter,Arial,sans-serif;
+    overflow-x:hidden;
+}
+
+button,
+input,
+select{
+    font:inherit;
+}
+
+button{
+    cursor:pointer;
+}
+
+a{
+    color:inherit;
+    text-decoration:none;
+}
+
+
+/* =========================================================
+   BACKGROUND EFFECTS
+========================================================= */
+
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    z-index:-5;
+
+    background:
+        radial-gradient(
+            circle at 10% 15%,
+            rgba(69,217,255,.10),
+            transparent 30%
+        ),
+
+        radial-gradient(
+            circle at 90% 20%,
+            rgba(140,99,255,.12),
+            transparent 32%
+        ),
+
+        radial-gradient(
+            circle at 50% 100%,
+            rgba(78,140,255,.08),
+            transparent 35%
+        );
+}
+
+body::after{
+    content:"";
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    z-index:1000;
+
+    background:
+        linear-gradient(
+            rgba(255,255,255,.018) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(255,255,255,.018) 1px,
+            transparent 1px
+        );
+
+    background-size:70px 70px;
+
+    mask-image:linear-gradient(
+        to bottom,
+        black,
+        transparent 80%
+    );
+}
+
+
+/* =========================================================
+   NAVBAR
+========================================================= */
+
+.navbar{
+    position:absolute;
+    top:0;
+    left:0;
+    right:0;
+
+    height:88px;
+
+    padding:0 6%;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    z-index:50;
+
+    border-bottom:1px solid rgba(255,255,255,.05);
+
+    background:linear-gradient(
+        rgba(3,9,20,.65),
+        transparent
+    );
+
+    backdrop-filter:blur(8px);
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.logo-icon{
+    width:45px;
+    height:45px;
+
+    display:grid;
+    place-items:center;
+
+    border-radius:13px;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--cyan),
+            var(--violet)
+        );
+
+    color:#03101d;
+
+    font-weight:900;
+    font-size:12px;
+
+    box-shadow:
+        0 0 30px rgba(69,217,255,.25);
+}
+
+.logo-title{
+    font-family:"Space Grotesk",sans-serif;
+    font-size:16px;
+    font-weight:700;
+}
+
+.logo-subtitle{
+    display:block;
+
+    color:#71879e;
+
+    font-size:9px;
+
+    letter-spacing:2px;
+
+    text-transform:uppercase;
+
+    margin-top:3px;
+}
+
+.nav-links{
+    display:flex;
+    align-items:center;
+    gap:32px;
+}
+
+.nav-links a{
+    color:#aebfd1;
+    font-size:13px;
+    transition:.25s;
+}
+
+.nav-links a:hover{
+    color:#fff;
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero{
+    min-height:790px;
+
+    position:relative;
+
+    display:flex;
+    align-items:center;
+
+    padding:
+        130px
+        6%
+        100px;
+
+    overflow:hidden;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(2,8,18,.98) 0%,
+            rgba(2,8,18,.92) 35%,
+            rgba(2,8,18,.58) 65%,
+            rgba(2,8,18,.30) 100%
+        ),
+
+        linear-gradient(
+            0deg,
+            #030914 0%,
+            transparent 45%
+        ),
+
+        url("https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&w=2200&q=90")
+        center/cover;
+}
+
+.hero::before{
+    content:"";
+
+    position:absolute;
+
+    width:600px;
+    height:600px;
+
+    right:-150px;
+    top:100px;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(69,217,255,.18),
+            transparent 65%
+        );
+
+    filter:blur(10px);
+}
+
+.hero-content{
+    position:relative;
+    z-index:5;
+
+    max-width:800px;
+}
+
+.hero-badge{
+    display:inline-flex;
+    align-items:center;
+    gap:9px;
+
+    padding:9px 14px;
+
+    border-radius:100px;
+
+    background:rgba(69,217,255,.08);
+
+    border:1px solid rgba(69,217,255,.22);
+
+    color:var(--cyan);
+
+    font-size:10px;
+
+    letter-spacing:1.8px;
+
+    text-transform:uppercase;
+
+    margin-bottom:25px;
+}
+
+.status-dot{
+    width:7px;
+    height:7px;
+
+    border-radius:50%;
+
+    background:var(--green);
+
+    box-shadow:
+        0 0 15px var(--green);
+}
+
+.hero h1{
+    font-family:"Space Grotesk",sans-serif;
+
+    font-size:
+        clamp(48px,7vw,94px);
+
+    line-height:.94;
+
+    letter-spacing:-5px;
+}
+
+.hero h1 .gradient{
+    display:block;
+
+    background:
+        linear-gradient(
+            100deg,
+            #fff 10%,
+            var(--cyan) 50%,
+            var(--violet)
+        );
+
+    -webkit-background-clip:text;
+
+    color:transparent;
+}
+
+.hero-description{
+    max-width:650px;
+
+    margin-top:30px;
+
+    color:#a8bacd;
+
+    font-size:16px;
+
+    line-height:1.8;
+}
+
+.hero-actions{
+    display:flex;
+    flex-wrap:wrap;
+
+    gap:12px;
+
+    margin-top:35px;
+}
+
+.btn-primary{
+    padding:15px 22px;
+
+    border:0;
+
+    border-radius:12px;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--cyan),
+            var(--blue)
+        );
+
+    color:#03101b;
+
+    font-weight:800;
+
+    box-shadow:
+        0 15px 45px rgba(69,217,255,.18);
+
+    transition:.25s;
+}
+
+.btn-primary:hover{
+    transform:translateY(-2px);
+
+    box-shadow:
+        0 20px 55px rgba(69,217,255,.30);
+}
+
+.btn-secondary{
+    padding:15px 22px;
+
+    border-radius:12px;
+
+    border:1px solid var(--border);
+
+    background:rgba(255,255,255,.055);
+
+    color:#fff;
+
+    backdrop-filter:blur(10px);
+
+    transition:.25s;
+}
+
+.btn-secondary:hover{
+    background:rgba(255,255,255,.10);
+}
+
+.hero-stat-row{
+    display:flex;
+    gap:45px;
+
+    margin-top:55px;
+}
+
+.hero-stat strong{
+    display:block;
+
+    font-family:"Space Grotesk",sans-serif;
+
+    font-size:25px;
+}
+
+.hero-stat span{
+    display:block;
+
+    margin-top:5px;
+
+    color:#72879d;
+
+    font-size:9px;
+
+    letter-spacing:1.4px;
+
+    text-transform:uppercase;
+}
+
+
+/* =========================================================
+   FLOATING HERO CARD
+========================================================= */
+
+.hero-card{
+    position:absolute;
+
+    right:7%;
+    top:29%;
+
+    width:310px;
+
+    padding:15px;
+
+    border-radius:22px;
+
+    background:
+        rgba(7,20,35,.70);
+
+    border:1px solid rgba(255,255,255,.13);
+
+    backdrop-filter:blur(20px);
+
+    box-shadow:
+        0 30px 80px rgba(0,0,0,.35);
+
+    transform:rotate(2deg);
+
+    z-index:4;
+}
+
+.hero-card-image{
+    height:210px;
+
+    border-radius:15px;
+
+    overflow:hidden;
+}
+
+.hero-card-image img{
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+}
+
+.hero-card-content{
+    padding:15px 5px 3px;
+}
+
+.hero-card-title{
+    font-family:"Space Grotesk",sans-serif;
+
+    font-size:16px;
+}
+
+.hero-card-text{
+    color:#8095aa;
+
+    font-size:11px;
+
+    line-height:1.6;
+
+    margin-top:6px;
+}
+
+.hero-card-badge{
+    display:inline-block;
+
+    margin-top:12px;
+
+    padding:6px 9px;
+
+    border-radius:7px;
+
+    background:rgba(85,230,174,.08);
+
+    border:1px solid rgba(85,230,174,.18);
+
+    color:var(--green);
+
+    font-size:9px;
+}
+
+
+/* =========================================================
+   SEARCH
+========================================================= */
+
+.search-container{
+    width:88%;
+    max-width:1200px;
+
+    margin:-65px auto 0;
+
+    position:relative;
+
+    z-index:20;
+}
+
+.search-panel{
+    padding:20px;
+
+    border-radius:24px;
+
+    border:1px solid rgba(255,255,255,.12);
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(15,35,57,.94),
+            rgba(7,19,34,.94)
+        );
+
+    box-shadow:
+        0 25px 80px rgba(0,0,0,.4);
+
+    backdrop-filter:blur(25px);
+}
+
+.search-row{
+    display:flex;
+
+    gap:10px;
+}
+
+.search-box{
+    position:relative;
+
+    flex:1;
+}
+
+.search-icon{
+    position:absolute;
+
+    left:17px;
+    top:50%;
+
+    transform:translateY(-50%);
+
+    color:#69839b;
+
+    font-size:16px;
+}
+
+.search-input{
+    width:100%;
+
+    padding:
+        17px
+        17px
+        17px
+        48px;
+
+    border-radius:13px;
+
+    outline:none;
+
+    border:1px solid rgba(255,255,255,.09);
+
+    background:#061321;
+
+    color:#fff;
+}
+
+.search-input::placeholder{
+    color:#60778d;
+}
+
+.search-input:focus{
+    border-color:
+        rgba(69,217,255,.5);
+
+    box-shadow:
+        0 0 0 3px
+        rgba(69,217,255,.05);
+}
+
+.search-btn{
+    border:0;
+
+    padding:
+        0 28px;
+
+    border-radius:13px;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--cyan),
+            var(--blue)
+        );
+
+    color:#03101c;
+
+    font-weight:800;
+}
+
+.quick-searches{
+    display:flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    margin-top:13px;
+
+    flex-wrap:wrap;
+}
+
+.quick-label{
+    color:#60778e;
+
+    font-size:10px;
+
+    margin-right:3px;
+}
+
+.quick-searches button{
+    padding:7px 11px;
+
+    border-radius:8px;
+
+    border:1px solid rgba(255,255,255,.08);
+
+    background:rgba(255,255,255,.035);
+
+    color:#9eb0c3;
+
+    font-size:10px;
+
+    transition:.2s;
+}
+
+.quick-searches button:hover{
+    border-color:
+        rgba(69,217,255,.3);
+
+    color:var(--cyan);
+}
+
+
+/* =========================================================
+   SECTIONS
+========================================================= */
+
+.section{
+    padding:120px 6%;
+}
+
+.section-header{
+    display:flex;
+
+    align-items:end;
+
+    justify-content:space-between;
+
+    gap:35px;
+
+    margin-bottom:45px;
+}
+
+.section-kicker{
+    color:var(--cyan);
+
+    font-size:10px;
+
+    letter-spacing:2px;
+
+    text-transform:uppercase;
+
+    margin-bottom:10px;
+}
+
+.section-title{
+    font-family:"Space Grotesk",sans-serif;
+
+    font-size:
+        clamp(32px,4vw,55px);
+
+    line-height:1;
+
+    letter-spacing:-2.5px;
+}
+
+.section-description{
+    max-width:470px;
+
+    color:#8196ac;
+
+    font-size:13px;
+
+    line-height:1.8;
+}
+
+
+/* =========================================================
+   VISUAL LAB SECTION
+========================================================= */
+
+.visual-grid{
+    display:grid;
+
+    grid-template-columns:
+        1.5fr
+        .75fr
+        .75fr;
+
+    gap:15px;
+}
+
+.visual-card{
+    position:relative;
+
+    min-height:300px;
+
+    overflow:hidden;
+
+    border-radius:22px;
+
+    border:1px solid var(--border);
+
+    background:#0c1b2d;
+}
+
+.visual-card.tall{
+    min-height:475px;
+}
+
+.visual-card img{
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+
+    transition:
+        transform .7s;
+}
+
+.visual-card:hover img{
+    transform:scale(1.07);
+}
+
+.visual-overlay{
+    position:absolute;
+
+    inset:0;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:end;
+
+    padding:28px;
+
+    background:
+        linear-gradient(
+            transparent 25%,
+            rgba(2,8,18,.94)
+        );
+}
+
+.visual-overlay small{
+    color:var(--cyan);
+
+    font-size:9px;
+
+    letter-spacing:1.5px;
+
+    text-transform:uppercase;
+
+    margin-bottom:7px;
+}
+
+.visual-overlay h3{
+    font-family:"Space Grotesk",sans-serif;
+
+    font-size:22px;
+}
+
+.visual-overlay p{
+    color:#9aadc1;
+
+    font-size:11px;
+
+    line-height:1.6;
+
+    margin-top:7px;
+
+    max-width:350px;
+}
+
+
+/* =========================================================
+   BRANCH SECTION
+========================================================= */
+
+.branch-section{
+    background:
+        linear-gradient(
+            180deg,
+            transparent,
+            rgba(10,25,43,.65)
+        );
+}
+
+.branch-grid{
+    display:grid;
+
+    grid-template-columns:
+        repeat(
+            auto-fit,
+            minmax(215px,1fr)
+        );
+
+    gap:15px;
+}
+
+.branch-card{
+    height:245px;
+
+    position:relative;
+
+    overflow:hidden;
+
+    border-radius:19px;
+
+    border:1px solid var(--border);
+
+    cursor:pointer;
+
+    background:#0d1e31;
+}
+
+.branch-card img{
+    position:absolute;
+
+    inset:0;
+
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+
+    transition:.55s;
+}
+
+.branch-card:hover img{
+    transform:scale(1.09);
+}
+
+.branch-card::after{
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+        linear-gradient(
+            transparent 15%,
+            rgba(3,9,18,.94)
+        );
+}
+
+.branch-content{
+    position:absolute;
+
+    left:21px;
+    right:21px;
+    bottom:20px;
+
+    z-index:2;
+}
+
+.branch-index{
+    color:var(--cyan);
+
+    font-size:9px;
+
+    letter-spacing:1.5px;
+
+    margin-bottom:8px;
+}
+
+.branch-name{
+    font-family:"Space Grotesk",sans-serif;
+
+    font-size:20px;
+}
+
+.branch-link{
+    color:#8299ae;
+
+    font-size:10px;
+
+    margin-top:6px;
+}
+
+
+/* =========================================================
+   TOOLS SECTION
+========================================================= */
+
+.tools-section{
+    background:
+        radial-gradient(
+            circle at 90% 10%,
+            rgba(140,99,255,.10),
+            transparent 30%
+        ),
+
+        #06111e;
+}
+
+.tools-container{
+    border-radius:27px;
+
+    border:1px solid var(--border);
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(15,32,53,.84),
+            rgba(7,19,32,.84)
+        );
+
+    padding:25px;
+
+    box-shadow:
+        var(--shadow);
+}
+
+
+/* TOOL HEADER */
+
+.tools-header{
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    gap:20px;
+
+    padding-bottom:23px;
+
+    border-bottom:1px solid var(--border);
+
+    margin-bottom:23px;
+}
+
+.tools-title-area{
+    display:flex;
+
+    align-items:center;
+
+    gap:13px;
+}
+
+.tools-icon{
+    width:45px;
+    height:45px;
+
+    display:grid;
+
+    place-items:center;
+
+    border-radius:13px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(69,217,255,.15),
+            rgba(140,99,255,.15)
+        );
+
+    border:1px solid var(--border2);
+
+    color:var(--cyan);
+
+    font-size:20px;
+}
+
+.tools-title{
+    font-family:"Space Grotesk",sans-serif;
+
+    font-size:19px;
+}
+
+.tools-count{
+    color:#6f849a;
+
+    font-size:10px;
+
+    margin-top:4px;
+}
+
+
+/* FILTERS */
+
+.filters{
+    display:flex;
+
+    gap:9px;
+}
+
+.filter{
+    background:#071421;
+
+    color:#a7b9cc;
+
+    border:1px solid var(--border);
+
+    padding:11px 13px;
+
+    border-radius:10px;
+
+    outline:none;
+
+    font-size:11px;
+}
+
+.filter:focus{
+    border-color:
+        rgba(69,217,255,.4);
+}
+
+
+/* TOOL GRID */
+
+.tools-grid{
+    display:grid;
+
+    grid-template-columns:
+        repeat(
+            auto-fill,
+            minmax(255px,1fr)
+        );
+
+    gap:16px;
+}
+
+.tool-card{
+    position:relative;
+
+    overflow:hidden;
+
+    border-radius:18px;
+
+    background:
+        rgba(8,22,37,.85);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    transition:
+        transform .25s,
+        border .25s,
+        box-shadow .25s;
+}
+
+.tool-card:hover{
+    transform:translateY(-5px);
+
+    border-color:
+        rgba(69,217,255,.25);
+
+    box-shadow:
+        0 20px 55px rgba(0,0,0,.28);
+}
+
+.tool-photo{
+    height:190px;
+
+    position:relative;
+
+    overflow:hidden;
+
+    background:#102238;
+}
+
+.tool-photo img{
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+
+    transition:.5s;
+}
+
+.tool-card:hover .tool-photo img{
+    transform:scale(1.06);
+}
+
+.tool-branch{
+    position:absolute;
+
+    top:13px;
+    left:13px;
+
+    padding:6px 9px;
+
+    border-radius:7px;
+
+    background:
+        rgba(3,10,18,.78);
+
+    border:
+        1px solid
+        rgba(255,255,255,.13);
+
+    backdrop-filter:blur(10px);
+
+    color:#c6d5e5;
+
+    font-size:9px;
+}
+
+.tool-body{
+    padding:18px;
+}
+
+.tool-name{
+    font-family:"Space Grotesk",sans-serif;
+
+    font-size:16px;
+
+    margin-bottom:8px;
+}
+
+.tool-description{
+    color:#8196aa;
+
+    font-size:11px;
+
+    line-height:1.65;
+
+    min-height:38px;
+}
+
+.tool-footer{
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    margin-top:17px;
+}
+
+.tool-category{
+    color:var(--cyan);
+
+    font-size:9px;
+
+    letter-spacing:1px;
+
+    text-transform:uppercase;
+}
+
+.view-tool{
+    border:1px solid rgba(255,255,255,.09);
+
+    background:rgba(255,255,255,.035);
+
+    color:#c9d6e4;
+
+    padding:8px 11px;
+
+    border-radius:8px;
+
+    font-size:10px;
+
+    transition:.2s;
+}
+
+.view-tool:hover{
+    background:rgba(69,217,255,.10);
+
+    border-color:
+        rgba(69,217,255,.25);
+
+    color:var(--cyan);
+}
+
+
+/* =========================================================
+   HOW IT WORKS
+========================================================= */
+
+.steps{
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:16px;
+}
+
+.step{
+    position:relative;
+
+    padding:28px;
+
+    border-radius:20px;
+
+    border:1px solid var(--border);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(16,34,56,.8),
+            rgba(8,20,34,.8)
+        );
+
+    overflow:hidden;
+}
+
+.step::after{
+    content:"";
+
+    position:absolute;
+
+    width:130px;
+    height:130px;
+
+    right:-55px;
+    bottom:-55px;
+
+    border-radius:50%;
+
+    background:
+        rgba(69,217,255,.08);
+
+    filter:blur(10px);
+}
+
+.step-number{
+    width:43px;
+    height:43px;
+
+    display:grid;
+
+    place-items:center;
+
+    border-radius:12px;
+
+    color:var(--cyan);
+
+    background:
+        rgba(69,217,255,.08);
+
+    border:
+        1px solid
+        rgba(69,217,255,.18);
+
+    font-weight:800;
+
+    font-size:12px;
+
+    margin-bottom:28px;
+}
+
+.step h3{
+    font-family:"Space Grotesk",sans-serif;
+
+    font-size:18px;
+
+    margin-bottom:9px;
+}
+
+.step p{
+    color:#8196aa;
+
+    font-size:12px;
+
+    line-height:1.75;
+}
+
+
+/* =========================================================
+   MODAL
+========================================================= */
+
+.modal{
+    position:fixed;
+
+    inset:0;
+
+    z-index:100;
+
+    display:none;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:20px;
+
+    background:
+        rgba(0,0,0,.78);
+
+    backdrop-filter:blur(14px);
+}
+
+.modal.active{
+    display:flex;
+}
+
+.modal-box{
+    position:relative;
+
+    width:100%;
+
+    max-width:900px;
+
+    max-height:90vh;
+
+    overflow:auto;
+
+    border-radius:25px;
+
+    background:#091827;
+
+    border:1px solid rgba(255,255,255,.13);
+
+    box-shadow:
+        0 40px 100px rgba(0,0,0,.55);
+}
+
+.modal-photo{
+    height:290px;
+
+    overflow:hidden;
+}
+
+.modal-photo img{
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+}
+
+.close-modal{
+    position:absolute;
+
+    right:18px;
+    top:18px;
+
+    z-index:5;
+
+    width:40px;
+    height:40px;
+
+    border-radius:50%;
+
+    border:1px solid rgba(255,255,255,.2);
+
+    background:
+        rgba(0,0,0,.55);
+
+    color:#fff;
+
+    font-size:20px;
+}
+
+.modal-content{
+    padding:30px;
+}
+
+.modal-title{
+    font-family:"Space Grotesk",sans-serif;
+
+    font-size:30px;
+
+    letter-spacing:-1px;
+}
+
+.modal-subtitle{
+    color:var(--cyan);
+
+    font-size:10px;
+
+    text-transform:uppercase;
+
+    letter-spacing:1.5px;
+
+    margin-top:6px;
+}
+
+.detail{
+    margin-top:24px;
+}
+
+.detail h4{
+    color:#d8e5f2;
+
+    font-size:10px;
+
+    text-transform:uppercase;
+
+    letter-spacing:1.3px;
+
+    margin-bottom:7px;
+}
+
+.detail p{
+    color:#8fa4b8;
+
+    font-size:13px;
+
+    line-height:1.75;
+
+    white-space:pre-line;
+}
+
+.resources{
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:9px;
+
+    margin-top:27px;
+}
+
+.resource{
+    padding:11px 15px;
+
+    border-radius:9px;
+
+    color:var(--cyan);
+
+    background:
+        rgba(69,217,255,.07);
+
+    border:
+        1px solid
+        rgba(69,217,255,.18);
+
+    font-size:11px;
+}
+
+
+/* =========================================================
+   LOADING
+========================================================= */
+
+.loading{
+    grid-column:1/-1;
+
+    text-align:center;
+
+    padding:65px 20px;
+
+    color:#71869c;
+}
+
+.loader{
+    width:34px;
+    height:34px;
+
+    border-radius:50%;
+
+    border:
+        3px solid
+        rgba(255,255,255,.08);
+
+    border-top-color:var(--cyan);
+
+    animation:
+        spin 1s linear infinite;
+
+    margin:0 auto 14px;
+}
+
+@keyframes spin{
+    to{
+        transform:rotate(360deg);
+    }
+}
+
+.empty{
+    grid-column:1/-1;
+
+    padding:55px 20px;
+
+    text-align:center;
+
+    color:#75899e;
+
+    font-size:13px;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer{
+    padding:45px 6%;
+
+    border-top:
+        1px solid
+        var(--border);
+
+    display:flex;
+
+    justify-content:space-between;
+
+    gap:25px;
+
+    color:#64798f;
+
+    font-size:11px;
+
+    background:#020811;
+}
+
+.footer-brand{
+    color:#b6c6d7;
+
+    font-family:"Space Grotesk",sans-serif;
+
+    font-size:14px;
+}
+
+.footer-right{
+    text-align:right;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media(max-width:1050px){
+
+    .hero-card{
+        opacity:.35;
+        right:-80px;
+    }
+
+    .visual-grid{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .visual-card.tall{
+        grid-column:1/-1;
+        min-height:380px;
+    }
+
+}
+
+
+@media(max-width:800px){
+
+    .navbar{
+        height:75px;
+
+        padding:
+            0 5%;
+    }
+
+    .nav-links{
+        display:none;
+    }
+
+    .hero{
+        min-height:720px;
+
+        padding:
+            120px 5% 80px;
+
+        background:
+            linear-gradient(
+                rgba(2,8,18,.86),
+                rgba(2,8,18,.96)
+            ),
+
+            url("https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&w=1400&q=85")
+            center/cover;
+    }
+
+    .hero h1{
+        letter-spacing:-3px;
+    }
+
+    .hero-description{
+        font-size:14px;
+    }
+
+    .hero-card{
+        display:none;
+    }
+
+    .hero-stat-row{
+        gap:22px;
+    }
+
+    .hero-stat strong{
+        font-size:19px;
+    }
+
+    .hero-stat span{
+        font-size:8px;
+    }
+
+    .search-container{
+        width:92%;
+    }
+
+    .search-row{
+        flex-direction:column;
+    }
+
+    .search-btn{
+        height:50px;
+    }
+
+    .section{
+        padding:
+            80px 5%;
+    }
+
+    .section-header{
+        display:block;
+    }
+
+    .section-description{
+        margin-top:17px;
+    }
+
+    .visual-grid{
+        grid-template-columns:1fr;
+    }
+
+    .visual-card,
+    .visual-card.tall{
+        min-height:280px;
+    }
+
+    .tools-header{
+        align-items:flex-start;
+
+        flex-direction:column;
+    }
+
+    .filters{
+        width:100%;
+    }
+
+    .filter{
+        flex:1;
+    }
+
+    .steps{
+        grid-template-columns:1fr;
+    }
+
+    footer{
+        flex-direction:column;
+    }
+
+    .footer-right{
+        text-align:left;
+    }
+
+    .modal{
+        padding:10px;
+    }
+
+    .modal-photo{
+        height:210px;
+    }
+
+    .modal-content{
+        padding:22px;
+    }
+
+    .modal-title{
+        font-size:25px;
+    }
+
+}
+
+
+/* =========================================================
+   SMALL PHONES
+========================================================= */
+
+@media(max-width:480px){
+
+    .logo-title{
+        font-size:13px;
+    }
+
+    .logo-icon{
+        width:39px;
+        height:39px;
+    }
+
+    .hero h1{
+        font-size:47px;
+    }
+
+    .hero-actions{
+        flex-direction:column;
+    }
+
+    .btn-primary,
+    .btn-secondary{
+        text-align:center;
+    }
+
+    .hero-stat-row{
+        justify-content:space-between;
+    }
+
+    .tools-container{
+        padding:15px;
+    }
+
+    .tools-grid{
+        grid-template-columns:1fr;
+    }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     NAVBAR
+===================================================== -->
+
+<nav class="navbar">
+
+    <div class="logo">
+
+        <div class="logo-icon">
+            ELG
+        </div>
+
+        <div>
+
+            <div class="logo-title">
+                Engineering Lab Guide
+            </div>
+
+            <span class="logo-subtitle">
+                Learn • Experiment • Build
+            </span>
+
+        </div>
+
+    </div>
+
+
+    <div class="nav-links">
+
+        <a href="#overview">
+            Overview
+        </a>
+
+        <a href="#branches">
+            Branches
+        </a>
+
+        <a href="#tools">
+            Equipment
+        </a>
+
+        <a href="#guide">
+            Guide
+        </a>
+
+    </div>
+
+</nav>
+
+
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<section
+    class="hero"
+    id="overview"
+>
+
+    <div class="hero-content">
+
+        <div class="hero-badge">
+
+            <span class="status-dot"></span>
+
+            Engineering Student Resource
+
+        </div>
+
+
+        <h1>
+
+            Know your lab.
+
+            <span class="gradient">
+                Master your equipment.
+            </span>
+
+        </h1>
+
+
+        <p class="hero-description">
+
+            A modern digital laboratory guide built for engineering
+            students. Discover instruments, understand their working
+            principles, follow procedures and work safely.
+
+        </p>
+
+
+        <div class="hero-actions">
+
+            <a
+                href="#tools"
+                class="btn-primary"
+            >
+                Explore Equipment →
+            </a>
+
+
+            <a
+                href="#branches"
+                class="btn-secondary"
+            >
+                Explore Branches
+            </a>
+
+        </div>
+
+
+        <div class="hero-stat-row">
+
+            <div class="hero-stat">
+
+                <strong id="heroToolCount">
+                    —
+                </strong>
+
+                <span>
+                    Equipment
+                </span>
+
+            </div>
+
+
+            <div class="hero-stat">
+
+                <strong id="heroBranchCount">
+                    —
+                </strong>
+
+                <span>
+                    Branches
+                </span>
+
+            </div>
+
+
+            <div class="hero-stat">
+
+                <strong>
+                    24/7
+                </strong>
+
+                <span>
+                    Access
+                </span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- FLOATING IMAGE CARD -->
+
+    <div class="hero-card">
+
+        <div class="hero-card-image">
+
+            <img
+                src="https://images.unsplash.com/photo-1579154204601-01588f351e67?auto=format&fit=crop&w=800&q=85"
+                alt="Laboratory equipment"
+            >
+
+        </div>
+
+
+        <div class="hero-card-content">
+
+            <div class="hero-card-title">
+                Laboratory Intelligence
+            </div>
+
+            <div class="hero-card-text">
+                Understand the equipment before
+                you enter the laboratory.
+            </div>
+
+            <span class="hero-card-badge">
+                ● STUDENT READY
+            </span>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     SEARCH
+===================================================== -->
+
+<div class="search-container">
+
+    <div class="search-panel">
+
+        <div class="search-row">
+
+            <div class="search-box">
+
+                <span class="search-icon">
+                    ⌕
+                </span>
+
+                <input
+                    id="searchInput"
+                    class="search-input"
+                    type="text"
+                    placeholder="Search equipment, instrument, machine..."
+                >
+
+            </div>
+
+
+            <button
+                class="search-btn"
+                onclick="performSearch()"
+            >
+                Search
+            </button>
+
+        </div>
+
+
+        <div class="quick-searches">
+
+            <span class="quick-label">
+                Popular:
+            </span>
+
+
+            <button onclick="quickSearch('multimeter')">
+                Multimeter
+            </button>
+
+            <button onclick="quickSearch('oscilloscope')">
+                Oscilloscope
+            </button>
+
+            <button onclick="quickSearch('vernier')">
+                Vernier
+            </button>
+
+            <button onclick="quickSearch('micrometer')">
+                Micrometer
+            </button>
+
+            <button onclick="quickSearch('motor')">
+                Motor
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!-- =====================================================
+     VISUAL LAB
+===================================================== -->
+
+<section class="section">
+
+    <div class="section-header">
+
+        <div>
+
+            <div class="section-kicker">
+                Inside The Lab
+            </div>
+
+            <h2 class="section-title">
+                Engineering is<br>
+                better understood hands-on.
+            </h2>
+
+        </div>
+
+
+        <p class="section-description">
+
+            Explore the world of engineering laboratories
+            through equipment, machines and practical
+            learning resources.
+
+        </p>
+
+    </div>
+
+
+    <div class="visual-grid">
+
+
+        <div class="visual-card tall">
+
+            <img
+                src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&w=1200&q=90"
+                alt="Engineering laboratory"
+            >
+
+            <div class="visual-overlay">
+
+                <small>
+                    Engineering Labs
+                </small>
+
+                <h3>
+                    Where theory becomes practical.
+                </h3>
+
+                <p>
+                    Learn what the instruments do,
+                    how they work and how to use them.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="visual-card">
+
+            <img
+                src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=900&q=85"
+                alt="Electronics"
+            >
+
+            <div class="visual-overlay">
+
+                <small>
+                    Electronics
+                </small>
+
+                <h3>
+                    Measure. Analyse. Understand.
+                </h3>
+
+            </div>
+
+        </div>
+
+
+        <div class="visual-card">
+
+            <img
+                src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&w=900&q=85"
+                alt="Mechanical engineering"
+            >
+
+            <div class="visual-overlay">
+
+                <small>
+                    Mechanical
+                </small>
+
+                <h3>
+                    Machines in motion.
+                </h3>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     BRANCHES
+===================================================== -->
+
+<section
+    class="section branch-section"
+    id="branches"
+>
+
+    <div class="section-header">
+
+        <div>
+
+            <div class="section-kicker">
+                Explore
+            </div>
+
+            <h2 class="section-title">
+                Engineering branches
+            </h2>
+
+        </div>
+
+
+        <p class="section-description">
+
+            Select your engineering branch and
+            discover the laboratory equipment
+            associated with it.
+
+        </p>
+
+    </div>
+
+
+    <div
+        id="branchGrid"
+        class="branch-grid"
+    >
+
+        <div class="loading">
+
+            <div class="loader"></div>
+
+            Loading branches...
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     TOOLS EXPLORER
+===================================================== -->
+
+<section
+    class="section tools-section"
+    id="tools"
+>
+
+    <div class="section-header">
+
+        <div>
+
+            <div class="section-kicker">
+                Equipment Library
+            </div>
+
+            <h2 class="section-title">
+                Lab Tools Explorer
+            </h2>
+
+        </div>
+
+
+        <p class="section-description">
+
+            Find an instrument, open its complete
+            guide and learn how to use it safely.
+
+        </p>
+
+    </div>
+
+
+
+    <div class="tools-container">
+
+
+        <div class="tools-header">
+
+
+            <div class="tools-title-area">
+
+                <div class="tools-icon">
+                    ⚙
+                </div>
+
+
+                <div>
+
+                    <div class="tools-title">
+                        Laboratory Equipment
+                    </div>
+
+                    <div class="tools-count">
+
+                        Showing
+                        <strong id="toolCount">
+                            0
+                        </strong>
+                        equipment
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- FILTERS AT TOP RIGHT -->
+
+            <div class="filters">
+
+                <select
+                    id="branchFilter"
+                    class="filter"
+                    onchange="applyFilters()"
+                >
+
+                    <option value="">
+                        All Branches
+                    </option>
+
+                </select>
+
+
+                <select
+                    id="categoryFilter"
+                    class="filter"
+                    onchange="applyFilters()"
+                >
+
+                    <option value="">
+                        All Categories
+                    </option>
+
+                </select>
+
+            </div>
+
+        </div>
+
+
+
+        <div
+            id="toolsGrid"
+            class="tools-grid"
+        >
+
+            <div class="loading">
+
+                <div class="loader"></div>
+
+                Loading equipment...
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     HOW IT WORKS
+===================================================== -->
+
+<section
+    class="section"
+    id="guide"
+>
+
+    <div class="section-header">
+
+        <div>
+
+            <div class="section-kicker">
+                Student Workflow
+            </div>
+
+            <h2 class="section-title">
+                Learn before you experiment.
+            </h2>
+
+        </div>
+
+
+        <p class="section-description">
+
+            Use the guide before practical sessions
+            to become familiar with the equipment.
+
+        </p>
+
+    </div>
+
+
+    <div class="steps">
+
+
+        <div class="step">
+
+            <div class="step-number">
+                01
+            </div>
+
+            <h3>
+                Find your equipment
+            </h3>
+
+            <p>
+                Search by equipment name or browse
+                using branch and category filters.
+            </p>
+
+        </div>
+
+
+        <div class="step">
+
+            <div class="step-number">
+                02
+            </div>
+
+            <h3>
+                Understand the instrument
+            </h3>
+
+            <p>
+                Learn its purpose, working principle,
+                applications and important concepts.
+            </p>
+
+        </div>
+
+
+        <div class="step">
+
+            <div class="step-number">
+                03
+            </div>
+
+            <h3>
+                Perform safely
+            </h3>
+
+            <p>
+                Follow the procedure and safety
+                instructions during your laboratory work.
+            </p>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     MODAL
+===================================================== -->
+
+<div
+    id="toolModal"
+    class="modal"
+    onclick="closeModal(event)"
+>
+
+    <div class="modal-box">
+
+
+        <button
+            class="close-modal"
+            onclick="closeToolModal()"
+        >
+            ×
+        </button>
+
+
+        <div class="modal-photo">
+
+            <img
+                id="modalImage"
+                src=""
+                alt="Equipment"
+            >
+
+        </div>
+
+
+        <div class="modal-content">
+
+
+            <h2
+                id="modalTitle"
+                class="modal-title"
+            >
+                Equipment
+            </h2>
+
+
+            <div
+                id="modalSub"
+                class="modal-subtitle"
+            >
+            </div>
+
+
+
+            <div class="detail">
+
+                <h4>
+                    Description
+                </h4>
+
+                <p id="modalDescription">
+                </p>
+
+            </div>
+
+
+
+            <div class="detail">
+
+                <h4>
+                    Working Principle
+                </h4>
+
+                <p id="modalPrinciple">
+                </p>
+
+            </div>
+
+
+
+            <div class="detail">
+
+                <h4>
+                    Procedure
+                </h4>
+
+                <p id="modalProcedure">
+                </p>
+
+            </div>
+
+
+
+            <div class="detail">
+
+                <h4>
+                    Applications
+                </h4>
+
+                <p id="modalApplications">
+                </p>
+
+            </div>
+
+
+
+            <div class="detail">
+
+                <h4>
+                    Safety
+                </h4>
+
+                <p id="modalSafety">
+                </p>
+
+            </div>
+
+
+
+            <div
+                id="resourceButtons"
+                class="resources"
+            >
+            </div>
+
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+    <div>
+
+        <div class="footer-brand">
+            Engineering Lab Guide
+        </div>
+
+        <div>
+            Learn • Experiment • Build
+        </div>
+
+    </div>
+
+
+    <div class="footer-right">
+
+        Student-focused laboratory resource
+
+        <br>
+
+        Built for engineering education
+
+    </div>
+
+</footer>
+
+
+
+<script>
+
+/* =========================================================
+   GOOGLE APPS SCRIPT API
+========================================================= */
+
+const API_URL =
+"https://script.google.com/macros/s/AKfycbwynudUx5QQsD8andoRbmKeFhjlTuzLSFdRVfL5dlb6V0Zyy8o6rHbiVsH655IiY0e5/exec";
+
+
+/* =========================================================
+   DATA
+========================================================= */
+
+let allTools = [];
+
+let allBranches = [];
+
+let allCategories = [];
+
+
+/* =========================================================
+   FALLBACK EQUIPMENT IMAGES
+========================================================= */
+
+const fallbackImages = [
+
+"https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&w=900&q=85",
+
+"https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=900&q=85",
+
+"https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&w=900&q=85",
+
+"https://images.unsplash.com/photo-1579154204601-01588f351e67?auto=format&fit=crop&w=900&q=85",
+
+"https://images.unsplash.com/photo-1581092919535-7146ff1a5906?auto=format&fit=crop&w=900&q=85"
+
+];
+
+
+/* =========================================================
+   GET IMAGE
+========================================================= */
+
+function getToolImage(tool,index=0){
+
+    if(
+        tool &&
+        tool["Image URL"] &&
+        String(tool["Image URL"]).trim()
+    ){
+
+        return String(
+            tool["Image URL"]
+        ).trim();
+
+    }
+
+    return fallbackImages[
+        index % fallbackImages.length
+    ];
+
+}
+
+
+/* =========================================================
+   LOAD DATA
+========================================================= */
+
+async function loadData(){
+
+    try{
+
+        const [
+            toolsResponse,
+            branchesResponse,
+            categoriesResponse
+        ] = await Promise.all([
+
+            fetch(
+                API_URL + "?action=tools"
+            ),
+
+            fetch(
+                API_URL + "?action=branches"
+            ),
+
+            fetch(
+                API_URL + "?action=categories"
+            )
+
+        ]);
+
+
+        allTools =
+            await toolsResponse.json();
+
+        allBranches =
+            await branchesResponse.json();
+
+        allCategories =
+            await categoriesResponse.json();
+
+
+        if(!Array.isArray(allTools))
+            allTools=[];
+
+        if(!Array.isArray(allBranches))
+            allBranches=[];
+
+        if(!Array.isArray(allCategories))
+            allCategories=[];
+
+
+        populateFilters();
+
+        renderBranches();
+
+        renderTools(allTools);
+
+
+        document
+            .getElementById("heroToolCount")
+            .textContent =
+                allTools.length + "+";
+
+
+        document
+            .getElementById("heroBranchCount")
+            .textContent =
+                allBranches.length;
+
+
+    }
+
+    catch(error){
+
+        console.error(error);
+
+        document
+            .getElementById("toolsGrid")
+            .innerHTML = `
+
+                <div class="empty">
+
+                    Unable to load equipment.
+
+                    <br><br>
+
+                    Please check your
+                    Google Apps Script deployment.
+
+                </div>
+
+            `;
+
+    }
+
+}
+
+
+/* =========================================================
+   GET BRANCH NAME
+========================================================= */
+
+function getBranchName(branch){
+
+    return (
+        branch.Branch ||
+        branch["Branch Name"] ||
+        branch.Name ||
+        Object.values(branch)[0] ||
+        ""
+    );
+
+}
+
+
+/* =========================================================
+   GET CATEGORY NAME
+========================================================= */
+
+function getCategoryName(category){
+
+    return (
+        category.Category ||
+        category["Category Name"] ||
+        category.Name ||
+        Object.values(category)[0] ||
+        ""
+    );
+
+}
+
+
+/* =========================================================
+   POPULATE FILTERS
+========================================================= */
+
+function populateFilters(){
+
+    const branchFilter =
+        document.getElementById(
+            "branchFilter"
+        );
+
+    const categoryFilter =
+        document.getElementById(
+            "categoryFilter"
+        );
+
+
+    allBranches.forEach(branch=>{
+
+        const value =
+            getBranchName(branch);
+
+        if(!value) return;
+
+
+        const option =
+            document.createElement("option");
+
+        option.value=value;
+
+        option.textContent=value;
+
+        branchFilter.appendChild(option);
+
+    });
+
+
+    allCategories.forEach(category=>{
+
+        const value =
+            getCategoryName(category);
+
+        if(!value) return;
+
+
+        const option =
+            document.createElement("option");
+
+        option.value=value;
+
+        option.textContent=value;
+
+        categoryFilter.appendChild(option);
+
+    });
+
+}
+
+
+/* =========================================================
+   BRANCH IMAGES
+========================================================= */
+
+const branchImages = [
+
+"https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=900&q=85",
+
+"https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=900&q=85",
+
+"https://images.unsplash.com/photo-1581092919535-7146ff1a5906?auto=format&fit=crop&w=900&q=85",
+
+"https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&w=900&q=85",
+
+"https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&w=900&q=85"
+
+];
+
+
+/* =========================================================
+   RENDER BRANCHES
+========================================================= */
+
+function renderBranches(){
+
+    const grid =
+        document.getElementById(
+            "branchGrid"
+        );
+
+
+    if(!allBranches.length){
+
+        grid.innerHTML=`
+
+            <div class="empty">
+                No branches found.
+            </div>
+
+        `;
+
+        return;
+
+    }
+
+
+    grid.innerHTML="";
+
+
+    allBranches.forEach(
+        (branch,index)=>{
+
+            const name =
+                getBranchName(branch);
+
+
+            const card =
+                document.createElement("div");
+
+            card.className=
+                "branch-card";
+
+
+            card.onclick=()=>{
+
+                document
+                    .getElementById(
+                        "branchFilter"
+                    )
+                    .value=name;
+
+                applyFilters();
+
+
+                document
+                    .getElementById("tools")
+                    .scrollIntoView({
+                        behavior:"smooth"
+                    });
+
+            };
+
+
+            card.innerHTML=`
+
+                <img
+                    src="${
+                        branchImages[
+                            index %
+                            branchImages.length
+                        ]
+                    }"
+                    alt="${escapeHtml(name)}"
+                >
+
+                <div class="branch-content">
+
+                    <div class="branch-index">
+                        BRANCH ${
+                            String(index+1)
+                                .padStart(2,"0")
+                    }
+                    </div>
+
+                    <div class="branch-name">
+                        ${escapeHtml(name)}
+                    </div>
+
+                    <div class="branch-link">
+                        Explore equipment →
+                    </div>
+
+                </div>
+
+            `;
+
+
+            grid.appendChild(card);
+
+        }
+    );
+
+}
+
+
+/* =========================================================
+   APPLY FILTERS
+========================================================= */
+
+function applyFilters(){
+
+    const branch =
+        document
+            .getElementById(
+                "branchFilter"
+            )
+            .value
+            .trim()
+            .toLowerCase();
+
+
+    const category =
+        document
+            .getElementById(
+                "categoryFilter"
+            )
+            .value
+            .trim()
+            .toLowerCase();
+
+
+    const results =
+        allTools.filter(tool=>{
+
+            const toolBranch =
+                String(
+                    tool.Branch || ""
+                )
+                .trim()
+                .toLowerCase();
+
+
+            const toolCategory =
+                String(
+                    tool.Category || ""
+                )
+                .trim()
+                .toLowerCase();
+
+
+            const branchMatch =
+                !branch ||
+                toolBranch === branch;
+
+
+            const categoryMatch =
+                !category ||
+                toolCategory === category;
+
+
+            return (
+                branchMatch &&
+                categoryMatch
+            );
+
+        });
+
+
+    renderTools(results);
+
+}
+
+
+/* =========================================================
+   SEARCH
+========================================================= */
+
+function performSearch(){
+
+    const query =
+        document
+            .getElementById(
+                "searchInput"
+            )
+            .value
+            .trim()
+            .toLowerCase();
+
+
+    if(!query){
+
+        renderTools(allTools);
+
+        return;
+
+    }
+
+
+    const results =
+        allTools.filter(tool=>{
+
+            const searchable = [
+
+                tool["Tool Name"],
+
+                tool.Branch,
+
+                tool.Category,
+
+                tool.Laboratory,
+
+                tool.Description,
+
+                tool["Working Principle"],
+
+                tool.Procedure,
+
+                tool.Applications
+
+            ]
+            .join(" ")
+            .toLowerCase();
+
+
+            return searchable.includes(query);
+
+        });
+
+
+    renderTools(results);
+
+
+    document
+        .getElementById("tools")
+        .scrollIntoView({
+            behavior:"smooth"
+        });
+
+}
+
+
+/* =========================================================
+   QUICK SEARCH
+========================================================= */
+
+function quickSearch(value){
+
+    document
+        .getElementById(
+            "searchInput"
+        )
+        .value=value;
+
+    performSearch();
+
+}
+
+
+/* =========================================================
+   ENTER TO SEARCH
+========================================================= */
+
+document
+    .getElementById("searchInput")
+    .addEventListener(
+        "keydown",
+        function(event){
+
+            if(event.key==="Enter"){
+
+                performSearch();
+
+            }
+
+        }
+    );
+
+
+/* =========================================================
+   RENDER TOOLS
+========================================================= */
+
+function renderTools(tools){
+
+    const grid =
+        document.getElementById(
+            "toolsGrid"
+        );
+
+
+    const count =
+        document.getElementById(
+            "toolCount"
+        );
+
+
+    count.textContent=
+        tools.length;
+
+
+    if(!tools.length){
+
+        grid.innerHTML=`
+
+            <div class="empty">
+
+                No equipment found.
+
+                <br><br>
+
+                Try another search,
+                branch or category.
+
+            </div>
+
+        `;
+
+        return;
+
+    }
+
+
+    grid.innerHTML="";
+
+
+    tools.forEach(
+        (tool,index)=>{
+
+            const image =
+                getToolImage(
+                    tool,
+                    index
+                );
+
+
+            const name =
+                tool["Tool Name"] ||
+                "Unnamed Equipment";
+
+
+            const branch =
+                tool.Branch ||
+                "Engineering";
+
+
+            const category =
+                tool.Category ||
+                "Laboratory";
+
+
+            const description =
+                tool.Description ||
+                "Equipment guide available for students.";
+
+
+            const card =
+                document.createElement(
+                    "div"
+                );
+
+            card.className=
+                "tool-card";
+
+
+            const safeTool =
+                JSON.stringify(tool)
+                    .replace(
+                        /'/g,
+                        "&#39;"
+                    );
+
+
+            card.innerHTML=`
+
+                <div class="tool-photo">
+
+                    <img
+                        src="${escapeAttribute(image)}"
+                        alt="${escapeAttribute(name)}"
+                        onerror="
+                            this.src='${
+                                fallbackImages[
+                                    index %
+                                    fallbackImages.length
+                                ]
+                            }'
+                        "
+                    >
+
+                    <div class="tool-branch">
+                        ${escapeHtml(branch)}
+                    </div>
+
+                </div>
+
+
+                <div class="tool-body">
+
+                    <div class="tool-name">
+                        ${escapeHtml(name)}
+                    </div>
+
+
+                    <div class="tool-description">
+
+                        ${escapeHtml(
+                            description.length > 105
+                            ? description.substring(
+                                0,
+                                105
+                            ) + "..."
+                            : description
+                        )}
+
+                    </div>
+
+
+                    <div class="tool-footer">
+
+                        <span class="tool-category">
+                            ${escapeHtml(category)}
+                        </span>
+
+
+                        <button
+                            class="view-tool"
+                            onclick='openTool(${safeTool})'
+                        >
+                            View Guide →
+                        </button>
+
+                    </div>
+
+                </div>
+
+            `;
+
+
+            grid.appendChild(card);
+
+        }
+    );
+
+}
+
+
+/* =========================================================
+   OPEN TOOL
+========================================================= */
+
+function openTool(tool){
+
+    const image =
+        getToolImage(tool);
+
+
+    document
+        .getElementById(
+            "modalTitle"
+        )
+        .textContent =
+            tool["Tool Name"] ||
+            "Equipment";
+
+
+    document
+        .getElementById(
+            "modalSub"
+        )
+        .textContent =
+            `${
+                tool.Branch ||
+                "Engineering"
+            } • ${
+                tool.Category ||
+                "Laboratory"
+            }`;
+
+
+    document
+        .getElementById(
+            "modalImage"
+        )
+        .src=image;
+
+
+    document
+        .getElementById(
+            "modalDescription"
+        )
+        .textContent =
+            tool.Description ||
+            "Information not available.";
+
+
+    document
+        .getElementById(
+            "modalPrinciple"
+        )
+        .textContent =
+            tool["Working Principle"] ||
+            "Information not available.";
+
+
+    document
+        .getElementById(
+            "modalProcedure"
+        )
+        .textContent =
+            tool.Procedure ||
+            "Information not available.";
+
+
+    document
+        .getElementById(
+            "modalApplications"
+        )
+        .textContent =
+            tool.Applications ||
+            "Information not available.";
+
+
+    document
+        .getElementById(
+            "modalSafety"
+        )
+        .textContent =
+            tool.Safety ||
+            "Information not available.";
+
+
+    const resources =
+        document.getElementById(
+            "resourceButtons"
+        );
+
+
+    resources.innerHTML="";
+
+
+    if(tool["Video URL"]){
+
+        resources.innerHTML += `
+
+            <a
+                class="resource"
+                href="${escapeAttribute(
+                    tool["Video URL"]
+                )}"
+                target="_blank"
+                rel="noopener"
+            >
+                ▶ Watch Video
+            </a>
+
+        `;
+
+    }
+
+
+    if(tool["PDF URL"]){
+
+        resources.innerHTML += `
+
+            <a
+                class="resource"
+                href="${escapeAttribute(
+                    tool["PDF URL"]
+                )}"
+                target="_blank"
+                rel="noopener"
+            >
+                📄 Open PDF
+            </a>
+
+        `;
+
+    }
+
+
+    document
+        .getElementById(
+            "toolModal"
+        )
+        .classList.add("active");
+
+
+    document.body.style.overflow="hidden";
+
+}
+
+
+/* =========================================================
+   CLOSE MODAL
+========================================================= */
+
+function closeToolModal(){
+
+    document
+        .getElementById(
+            "toolModal"
+        )
+        .classList.remove(
+            "active"
+        );
+
+
+    document.body.style.overflow="";
+
+}
+
+
+function closeModal(event){
+
+    if(
+        event.target.id ===
+        "toolModal"
+    ){
+
+        closeToolModal();
+
+    }
+
+}
+
+
+document.addEventListener(
+    "keydown",
+    function(event){
+
+        if(event.key==="Escape"){
+
+            closeToolModal();
+
+        }
+
+    }
+);
+
+
+/* =========================================================
+   SECURITY
+========================================================= */
+
+function escapeHtml(value){
+
+    return String(value ?? "")
+        .replace(
+            /&/g,
+            "&amp;"
+        )
+        .replace(
+            /</g,
+            "&lt;"
+        )
+        .replace(
+            />/g,
+            "&gt;"
+        )
+        .replace(
+            /"/g,
+            "&quot;"
+        )
+        .replace(
+            /'/g,
+            "&#039;"
+        );
+
+}
+
+
+function escapeAttribute(value){
+
+    return escapeHtml(value);
+
+}
+
+
+/* =========================================================
+   START WEBSITE
+========================================================= */
+
+loadData();
+
+</script>
+
+</body>
+</html>
